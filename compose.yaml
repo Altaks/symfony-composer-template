@@ -1,0 +1,30 @@
+services:
+  php:
+    container_name: symfony-stack-api
+    build:
+      context: .
+      dockerfile: docker/php/Dockerfile
+    volumes:
+      - "./:/var/www/html/"
+  web:
+    container_name: symfony-stack-apache
+    build:
+      context: .
+      dockerfile: docker/web/Dockerfile
+    ports:
+      - "8888:80"
+      - "8887:81"
+    volumes:
+      - "./:/var/www/html/"
+  db:
+    container_name: symfony-stack-database
+    build:
+      context: .
+      dockerfile: docker/db/Dockerfile
+    ports:
+      - "3307:3306" # mysql
+    environment:
+      MYSQL_DATABASE: database
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+      MYSQL_ROOT_PASSWORD: rootpassword
