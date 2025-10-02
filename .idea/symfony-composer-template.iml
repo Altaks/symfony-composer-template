@@ -131,6 +131,27 @@
       <excludeFolder url="file://$MODULE_DIR$/webapp/vendor/twig/extra-bundle" />
       <excludeFolder url="file://$MODULE_DIR$/webapp/vendor/twig/twig" />
       <excludeFolder url="file://$MODULE_DIR$/webapp/vendor/webmozart/assert" />
+      <excludeFolder url="file://$MODULE_DIR$/webapp/vendor/api-platform/doctrine-common" />
+      <excludeFolder url="file://$MODULE_DIR$/webapp/vendor/api-platform/doctrine-orm" />
+      <excludeFolder url="file://$MODULE_DIR$/webapp/vendor/api-platform/documentation" />
+      <excludeFolder url="file://$MODULE_DIR$/webapp/vendor/api-platform/http-cache" />
+      <excludeFolder url="file://$MODULE_DIR$/webapp/vendor/api-platform/hydra" />
+      <excludeFolder url="file://$MODULE_DIR$/webapp/vendor/api-platform/json-schema" />
+      <excludeFolder url="file://$MODULE_DIR$/webapp/vendor/api-platform/jsonld" />
+      <excludeFolder url="file://$MODULE_DIR$/webapp/vendor/api-platform/metadata" />
+      <excludeFolder url="file://$MODULE_DIR$/webapp/vendor/api-platform/openapi" />
+      <excludeFolder url="file://$MODULE_DIR$/webapp/vendor/api-platform/serializer" />
+      <excludeFolder url="file://$MODULE_DIR$/webapp/vendor/api-platform/state" />
+      <excludeFolder url="file://$MODULE_DIR$/webapp/vendor/api-platform/symfony" />
+      <excludeFolder url="file://$MODULE_DIR$/webapp/vendor/api-platform/validator" />
+      <excludeFolder url="file://$MODULE_DIR$/webapp/vendor/doctrine/common" />
+      <excludeFolder url="file://$MODULE_DIR$/webapp/vendor/fakerphp/faker" />
+      <excludeFolder url="file://$MODULE_DIR$/webapp/vendor/nelmio/cors-bundle" />
+      <excludeFolder url="file://$MODULE_DIR$/webapp/vendor/symfony/polyfill-uuid" />
+      <excludeFolder url="file://$MODULE_DIR$/webapp/vendor/symfony/uid" />
+      <excludeFolder url="file://$MODULE_DIR$/webapp/vendor/willdurand/negotiation" />
+      <excludeFolder url="file://$MODULE_DIR$/webapp/vendor/zenstruck/assert" />
+      <excludeFolder url="file://$MODULE_DIR$/webapp/vendor/zenstruck/foundry" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
