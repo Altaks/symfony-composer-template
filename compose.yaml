@@ -1,30 +1,66 @@
+name: 'symfony-stack'
+
 services:
-  php:
-    container_name: symfony-stack-api
+  nginx:
     build:
       context: .
-      dockerfile: docker/php/Dockerfile
+      dockerfile: ./docker/nginx/Dockerfile
+    image: ${COMPOSE_PROJECT_NAME}-nginx
+    container_name: ${COMPOSE_PROJECT_NAME}-nginx
     volumes:
-      - "./:/var/www/html/"
-  web:
-    container_name: symfony-stack-apache
-    build:
-      context: .
-      dockerfile: docker/web/Dockerfile
+      - type: bind
+        source: ./webapp
+        target: /app/webapp
+    depends_on:
+      - symfony
     ports:
-      - "8888:80"
-      - "8887:81"
+      - "8000:80"
+    networks:
+      - network
+  symfony:
+    build:
+      args:
+        USER_ID: ${USER_ID:-0}
+        GROUP_ID: ${GROUP_ID:-0}
+        USER_NAME: ${USER_NAME:-0}
+        GROUP_NAME: ${GROUP_NAME:-0}
+      context: .
+      dockerfile: ./docker/symfony/Dockerfile
+    image: ${COMPOSE_PROJECT_NAME}-sfapi
+    container_name: ${COMPOSE_PROJECT_NAME}-symfony
     volumes:
-      - "./:/var/www/html/"
-  db:
-    container_name: symfony-stack-database
+      - type: bind
+        source: ./webapp
+        target: /app/webapp
+    depends_on:
+      - database
+    networks:
+      - network
+  database:
     build:
       context: .
-      dockerfile: docker/db/Dockerfile
+      dockerfile: ./docker/database/Dockerfile
+    image: ${COMPOSE_PROJECT_NAME}-database
+    container_name: ${COMPOSE_PROJECT_NAME}-database
     ports:
-      - "3307:3306" # mysql
+      - "3306:3306"
+    volumes:
+      - type: volume
+        source: database-volume
+        target: /var/lib/mysql
     environment:
-      MYSQL_DATABASE: database
-      MYSQL_USER: user
-      MYSQL_PASSWORD: password
-      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: dbsfapi
+      MYSQL_ROOT_PASSWORD: rdbsfapi
+      MYSQL_USER: udbsfapi
+      MYSQL_PASSWORD: pdbsfapi
+    networks:
+      - network
+
+networks:
+  network:
+    name : ${COMPOSE_PROJECT_NAME}-network
+    driver: bridge
+
+volumes:
+  database-volume:
+    driver: local
