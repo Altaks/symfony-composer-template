@@ -67,7 +67,7 @@ php bin/console debug:router # Displays all the routes that are exposed by Symfo
 
 ```sh
 php bin/console doctrine:database:drop --force # Drop the current database, the `--force` flag is needed
-php bin/conosle doctrine:database:create # Create the database
+php bin/console doctrine:database:create # Create the database
 ```
 
 ### Install a package 
