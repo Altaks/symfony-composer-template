@@ -26,7 +26,7 @@ services:
         GROUP_NAME: ${GROUP_NAME:-0}
       context: .
       dockerfile: ./docker/symfony/Dockerfile
-    image: ${COMPOSE_PROJECT_NAME}-sfapi
+    image: ${COMPOSE_PROJECT_NAME}-symfony
     container_name: ${COMPOSE_PROJECT_NAME}-symfony
     volumes:
       - type: bind
